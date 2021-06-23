@@ -1,0 +1,31 @@
+name: Jira Deployment Action
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        description: 'Ticket Key'
+        default: 'Test'
+        required: true
+
+jobs:
+  CloneAnsibleRepo:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Ansible Repo
+      uses: actions/checkout@v2
+      with:
+          repository: BalrajBemainboina/generalapp
+          ref: master
+          clean: false
+  
+  InvokeDeployPipeline:
+      runs-on: ubuntu-latest
+      steps:
+      - name: Invoking Deployment Pipeline
+        run: echo "Deployment Pipeline Completed"
+  
+  FinalStateReport:
+      runs-on: ubuntu-latest
+      steps:
+      - name: Generates Final State Report
+        run: echo "Running Ansible Playbook for Final State report"
