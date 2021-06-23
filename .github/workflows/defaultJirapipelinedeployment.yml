@@ -20,12 +20,14 @@ jobs:
   
   InvokeDeployPipeline:
       runs-on: ubuntu-latest
+      needs: [CloneAnsibleRepo]
       steps:
       - name: Invoking Deployment Pipeline
         run: echo "Deployment Pipeline Completed"
   
   FinalStateReport:
       runs-on: ubuntu-latest
+      needs: [CloneAnsibleRepo, InvokeDeployPipeline]
       steps:
       - name: Generates Final State Report
         run: echo "Running Ansible Playbook for Final State report"
