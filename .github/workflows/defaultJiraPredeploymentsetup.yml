@@ -11,9 +11,24 @@ jobs:
   CloneAnsibleRepo:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout zip config
+    - name: Checkout Ansible Repo
       uses: actions/checkout@v2
       with:
           repository: BalrajBemainboina/generalapp
           ref: master
           clean: false
+  
+  CurrentStateReport:
+      runs-on: ubuntu-latest
+      steps:
+      - name: Generates Current State Report
+        run: echo "Running Ansible Playbook for Current State report"
+  
+  TargetStateReport:
+      runs-on: ubuntu-latest
+      steps:
+      - name: Generates Target State Report
+        run: echo "Running Ansible Playbook for Target State report"
+        
+  
+  
