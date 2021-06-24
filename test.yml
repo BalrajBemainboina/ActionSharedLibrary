@@ -1,11 +1,7 @@
 name: Jira PreDeployment setup Action
 on:
   workflow_dispatch:
-    inputs:
-      name:
-        description: 'Ticket Key'
-        default: 'Test'
-        required: true
+  
 
 jobs:
   CloneAnsibleRepo:
