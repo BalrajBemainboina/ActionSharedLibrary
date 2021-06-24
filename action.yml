@@ -5,7 +5,7 @@ runs:
   steps:
     - run: echo "Deployment Pipeline started"
       shell: bash
-    - run: scripts/deployment.sh
+    - run: ${{ github.action_path }}/scripts/deployment.sh
       shell: bash
     - run: echo "Deployment Pipeline Completed"
       shell: bash
