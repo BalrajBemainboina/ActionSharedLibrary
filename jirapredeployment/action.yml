@@ -1,0 +1,11 @@
+name: 'Bootstrap_Jira_Deployment_Action'
+description: 'Bootstrap Jira Deployment Action' 
+runs:
+  using: "composite"
+  steps:
+    - run: echo "Deployment Pipeline started"
+      shell: bash
+    - run: scripts/deployment.sh
+      shell: bash
+    - run: echo "Deployment Pipeline Completed"
+      shell: bash
