@@ -1,7 +1,5 @@
 name: 'Bootstrap_Jira_Deployment_Action'
-description: 'Bootstrap Jira Deployment Action'
-inputs:
-  
+description: 'Bootstrap Jira Deployment Action' 
 runs:
   using: "composite"
   steps:
