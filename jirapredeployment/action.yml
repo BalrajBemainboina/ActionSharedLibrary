@@ -5,7 +5,7 @@ runs:
   steps:
     - run: echo "Pre deployment step"
       shell: bash
-    - run: ${{ github.action_path }}/scripts/deployment.sh
+    - run: echo "Pre deployment step"
       shell: bash
     - run: echo "Pre deployment setup completed"
       shell: bash
