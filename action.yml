@@ -1,31 +1,13 @@
-name: Jira PreDeployment setup Action
-on:
-  workflow_dispatch:
+name: 'Bootstrap_Jira_Deployment_Action'
+description: 'Bootstrap Jira Deployment Action'
+inputs:
   
-
-jobs:
-  CloneAnsibleRepo:
-    runs-on: ubuntu-latest
-    steps:
-    - name: Checkout Ansible Repo
-      uses: actions/checkout@v2
-      with:
-          repository: BalrajBemainboina/generalapp
-          ref: master
-          clean: false
-  
-  CurrentStateReport:
-      runs-on: ubuntu-latest
-      needs: [CloneAnsibleRepo]
-      steps:
-      - name: Generates Current State Report
-        run: echo "Running Ansible Playbook for Current State report"
-  
-  TargetStateReport:
-      runs-on: ubuntu-latest
-      needs: [CloneAnsibleRepo, CurrentStateReport]
-      steps:
-      - name: Generates Target State Report
-        run: echo "Running Ansible Playbook for Target State report"
-  runs:
-    using: node12
+runs:
+  using: "composite"
+  steps:
+    - run: echo "Deployment Pipeline started"
+      shell: bash
+    - run: scripts/deployment.sh
+      shell: bash
+    - run: echo "Deployment Pipeline Completed"
+      shell: bash
