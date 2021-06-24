@@ -1,11 +1,11 @@
-name: 'Bootstrap_Jira_Deployment_Action'
-description: 'Bootstrap Jira Deployment Action' 
+name: 'Jira_Pre_Deployment_Action'
+description: 'Jira Pre- Deployment Action' 
 runs:
   using: "composite"
   steps:
-    - run: echo "Deployment Pipeline started"
+    - run: echo "Pre deployment step"
       shell: bash
-    - run: scripts/deployment.sh
+    - run: ${{ github.action_path }}/scripts/deployment.sh
       shell: bash
-    - run: echo "Deployment Pipeline Completed"
+    - run: echo "Pre deployment setup completed"
       shell: bash
